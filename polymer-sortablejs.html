@@ -244,6 +244,9 @@
       if(!oPrevModel) {
         var elFirstItem = aAllItems[oValue.newIndex + 1];
         var oFirstModel = self.template.modelForElement(elFirstItem);
+        if(!oFirstModel) {
+          return;
+        }
         self._setNewOrder((oFirstModel.item[self.orderFieldName] - nNewOrderDiff), nIndex);
         return;
       }
@@ -253,6 +256,9 @@
       if(!oNextModel) {
         var elLastItem = aAllItems[oValue.newIndex - 1];
         var oLastModel = self.template.modelForElement(elLastItem);
+        if(!oLastModel) {
+          return;
+        }
         self._setNewOrder((oLastModel.item[self.orderFieldName] + nNewOrderDiff), nIndex);
         return;
       }
